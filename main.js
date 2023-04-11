@@ -30,12 +30,14 @@ function randScope() {
 }
 
 //FUNCTIONS FOR DISPLAYING MESSAGES
-function sectorMessage() {
+//Print to screen the sector to be researched
+function sectorMessage(sector) {
     let sector = randMarketSector();
     console.log(`You should look into the ${sector} sector.`);
 }
 
-function forecastMessage() {
+//Print to screen what part of the sector/market might be affected
+function forecastMessage(theScope, theMove) {
     let theScope = randScope();
     let theMove = randPotentialMove();
     let message = '';
@@ -44,8 +46,25 @@ function forecastMessage() {
     } else {
         message = theScope;
     }
-    console.log(`${message} is looking ${theMove} right now.`);
+    if (theScope === scope[0] || theScope === scope[1] || theScope === scope[2]) {
+        console.log(`${message} is looking ${theMove} right now.`);
+    } else {
+        console.log(`${message} are looking ${theMove} right now.`);
+    }
 }
 
-sectorMessage();
-forecastMessage();
+//Print to screen that this program does not predict market trends
+function warningMessage(sector, theMove) {
+    console.log(`This is a randomly generated message, I (the program) am not an expert in the ${sector} sector, nor do I accurately predict that the trend is ${theMove}`);
+}
+
+
+//Creation of random message components
+let randomScope = randScope();
+let randomMove = randPotentialMove();
+let randomSector = randMarketSector();
+
+
+sectorMessage(randomSector);
+forecastMessage(randomScope, randomMove);
+warningMessage(randomSector, randomMove);
