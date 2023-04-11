@@ -1,6 +1,4 @@
-/*  Martin Gawron
-    4/11/2023
-    
+/*  
     Random Message Generator
 */
 
@@ -15,3 +13,18 @@ const potentialMove = ['Very Bearish', 'Slightly Bearish', 'Neutral', 'Slightly 
 const scope = ['The entire market', 'This entire sector', 'A stock in this sector', 'Small-cap stocks in this sector', 'Large-cap stocks in this sector'];
 
 
+//THE RANDOM FUNCTIONS FOR PICKING MESSAGE COMPONENTS
+//Return a random string from the marketSector array
+function randMarketSector() {
+    return marketSectors[Math.floor(Math.random() * marketSectors.length)];
+}
+
+//Return a random string from the potentialMove array
+function randPotentialMove() {
+    return potentialMove[Math.floor(Math.random() * potentialMove.length)];
+}
+
+//Return a random string from the scope array
+function randScope() {
+    return scope[Math.floor(Math.random() * scope.length)];
+}
