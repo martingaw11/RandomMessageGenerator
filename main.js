@@ -7,10 +7,10 @@
 const marketSectors = ['Health Care', 'Materials', 'Energy', 'Consumer Discretionary', 'Consumer Staples', 'Industrials', 'Utilities', 'Financials', 'Information Technology', 'Communication Services', 'Real Estate'];
 
 //Any part of the market has the potential to move according to these phrases
-const potentialMove = ['Very Bearish', 'Slightly Bearish', 'Neutral', 'Slightly Bullish', 'Very Bullish', 'To the Moon'];
+const potentialMove = ['very bearish', 'slightly bearish', 'neutral', 'slightly bullish', 'very bullish'];
 
 //What aspect or scope of the sector/market will be moving
-const scope = ['The entire market', 'This entire sector', 'A stock in this sector', 'Small-cap stocks in this sector', 'Large-cap stocks in this sector'];
+const scope = ['the entire market', 'This entire sector', 'A stock in this sector', 'Small-cap stocks in this sector', 'Large-cap stocks in this sector'];
 
 
 //THE RANDOM FUNCTIONS FOR PICKING MESSAGE COMPONENTS
@@ -28,3 +28,24 @@ function randPotentialMove() {
 function randScope() {
     return scope[Math.floor(Math.random() * scope.length)];
 }
+
+//FUNCTIONS FOR DISPLAYING MESSAGES
+function sectorMessage() {
+    let sector = randMarketSector();
+    console.log(`You should look into the ${sector} sector.`);
+}
+
+function forecastMessage() {
+    let theScope = randScope();
+    let theMove = randPotentialMove();
+    let message = '';
+    if (theScope === scope[0]) {
+        message = `Actually, ${theScope}`;
+    } else {
+        message = theScope;
+    }
+    console.log(`${message} is looking ${theMove} right now.`);
+}
+
+sectorMessage();
+forecastMessage();
